@@ -38,10 +38,10 @@ const getStyles = ({ colors, windowWidth, windowHeight, fonts }) => {
     actionsCarousleInstance: {
       alignSelf: "center",
       backgroundColor: colors.primary,
-      borderRadius: 30,
+      borderRadius: 40,
       height: "100%",
       width: "90%",
-      justifyContent: "center",
+      //justifyContent: "center",
     },
   });
 };

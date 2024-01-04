@@ -8,10 +8,9 @@ const Players = ({ props }) => {
   const [selectedId, setSelectedId] = useState();
   const { players, isGameAdmin } = useContext(GameContext);
 
-  const renderItem = ({ item, index }) => {
+  const renderItem = ({ item }) => {
     const color = item.id === selectedId ? props.colors.background : "#000";
-    const boxShadow =
-      item.id === selectedId ? `${props.colors.background} 0px 0px 5px` : "";
+
     return (
       <PlayerItem
         props={{
@@ -19,7 +18,6 @@ const Players = ({ props }) => {
           item,
           onPress: () => setSelectedId(item.id),
           color,
-          boxShadow,
         }}
       />
     );
@@ -31,6 +29,7 @@ const Players = ({ props }) => {
         <FlatList
           data={players}
           horizontal
+          showsHorizontalScrollIndicator={false}
           contentContainerStyle={{
             height: "100%",
             width: "100%",
@@ -40,7 +39,9 @@ const Players = ({ props }) => {
             return item.id.toString();
           }}
           extraData={selectedId}
-          ListFooterComponent={() => isGameAdmin && <AddAnother />}
+          ListFooterComponent={() =>
+            isGameAdmin && <AddAnother props={props} />
+          }
         />
       </ScrollView>
     );

@@ -80,6 +80,7 @@ const PlayerItem = ({ props }) => {
 
   const removePlayerInDb = async () => {
     const accessToken = await AsyncStorage.getItem("accessToken");
+    console.log("PRESSED");
     makeApiRequest(
       "remove_player_from_game",
       "POST",
@@ -99,7 +100,7 @@ const PlayerItem = ({ props }) => {
   return (
     <TouchableOpacity onPress={props.onPress} style={styles.item}>
       <ImageBackground
-        style={[styles.imgBackground, { boxShadow: props.boxShadow }]}
+        style={styles.imgBackground}
         resizeMode="cover"
         imageStyle={{ borderRadius: 100 }}
         source={require("../../../assets/profiles/1.jpg")}

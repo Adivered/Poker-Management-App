@@ -1,10 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-const CardShapeView = ({ shape, scale, fill, shadowColor }) => {
+const CardShapeView = ({ shape, scale, fill }) => {
   let shapeView;
   const size = scale || 100;
-  const styles = getStyles({ shadowColor, fill, size });
+  const styles = getStyles({ fill, size });
 
   switch (shape) {
     case "diamond":
@@ -53,7 +53,7 @@ const CardShapeView = ({ shape, scale, fill, shadowColor }) => {
   return <View>{shapeView}</View>;
 };
 
-const getStyles = ({ shadowColor, size, fill }) =>
+const getStyles = ({ size, fill }) =>
   StyleSheet.create({
     diamondWrapper: {
       flex: 1,
@@ -89,7 +89,6 @@ const getStyles = ({ shadowColor, size, fill }) =>
       left: size / 2 + 1.7,
       transform: [{ rotate: "-45deg" }],
       transformOrigin: "0 100%",
-      //boxShadow: `${shadowColor} 0px 0px 10px`,
     },
     heartAfter: {
       position: "absolute",
@@ -121,7 +120,6 @@ const getStyles = ({ shadowColor, size, fill }) =>
       transform: [{ rotate: "180deg" }],
       marginTop: -17,
       marginLeft: -4,
-      //boxShadow: `${shadowColor} 0px 0px 10px`,
     },
     marginContainer: {
       left: -8,
@@ -137,7 +135,6 @@ const getStyles = ({ shadowColor, size, fill }) =>
       borderRightWidth: size * 0.3,
       transform: [{ translateX: 40 }],
       marginLeft: -26,
-      //boxShadow: `${shadowColor} 0px 0px 30px`,
     },
     clubBefore: {
       width: size * 0.7,

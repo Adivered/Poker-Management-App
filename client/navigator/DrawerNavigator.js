@@ -1,35 +1,33 @@
 import React, { useState, useContext } from "react";
-import { useWindowDimensions } from "react-native";
-import AppNavigator from "../navigator/AppNavigator";
-import ProfileScreen from "../views/Profile/ProfileScreen";
-import SettingsScreen from "../views/Settings/SettingsScreen";
-import { GameDataProvider } from "../providers/GameDataProvider";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
   DrawerItem,
 } from "@react-navigation/drawer";
-import { SvgXml } from "react-native-svg"; // Import the necessary library
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import Icon2 from "react-native-vector-icons/Ionicons";
 import { useFocusEffect } from "@react-navigation/native";
+
+/* Screns */
+import AppNavigator from "../navigator/AppNavigator";
+import ProfileScreen from "../views/Profile/ProfileScreen";
+import SettingsScreen from "../views/Settings/SettingsScreen";
+/*Providers*/
+import { GameDataProvider } from "../providers/GameDataProvider";
 import makeApiRequest from "../providers/ApiRequest";
 import { MyContext } from "../providers/DataProvider";
 import { useTheme } from "react-native-paper";
+
+/*Storage*/
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+/*Icons*/
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import Icon2 from "react-native-vector-icons/Ionicons";
+
 const CustomDrawerContent = (props) => {
   const [userConnected, setUserConnected] = useState(false);
   const { userInfo, setUserInfo } = useContext(MyContext);
   console.log("userInfo: ", userInfo);
-  if (
-    userInfo.profile_picture?.assets &&
-    userInfo.profile_picture.assets.length > 0
-  ) {
-    // If an image is selected, render the image
-    const selectedImage = getProfilePicture.assets[0];
-    console.log("selectedImage: ", selectedImage);
-  }
   const logout = async () => {
     const refreshToken = await AsyncStorage.getItem("refreshToken");
     async function clearCache() {
@@ -70,7 +68,7 @@ const CustomDrawerContent = (props) => {
       <DrawerContentScrollView {...props}>
         <View style={props.styles.topContainer}>
           <Image
-            source={{ uri: userInfo?.profile_picture }} // Assuming profile_picture is a URI
+            source={{ uri: userInfo?.profile_picture || null }}
             style={props.styles.profile}
           />
           <View

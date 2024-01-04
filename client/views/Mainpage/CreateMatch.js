@@ -15,31 +15,9 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const slides = [
   {
     id: "1",
-    image: require("../../assets/icons/pirates.svg"),
-    title: "Great.",
-    subtitle: "How many players?",
-    rank: "A",
-    shape: "heart",
-    fill: "#FE019A",
-    shadowColor: "#FE019A",
   },
   {
     id: "2",
-    image: require("../../assets/icons/dices.svg"),
-    subtitle: "Where?",
-    rank: "A",
-    shape: "spade",
-    fill: "#CFFF04",
-    shadowColor: "#CFFF04",
-  },
-  {
-    id: "3",
-    image: require("../../assets/icons/pirates.svg"),
-    subtitle: "Creating Match...",
-    rank: "A",
-    shape: "club",
-    fill: "#39FF14",
-    shadowColor: "#39FF14",
   },
 ];
 
@@ -62,7 +40,6 @@ const CreateMatch = ({ navigation }) => {
   const { colors, fonts } = theme;
   const styles = getStyles({
     colors: colors,
-    windowHeight,
     windowWidth,
     fonts: fonts,
   });
@@ -255,7 +232,7 @@ const CreateMatch = ({ navigation }) => {
   );
 };
 
-const getStyles = ({ colors, windowWidth, windowHeight, fonts }) => {
+const getStyles = ({ colors, windowWidth, fonts }) => {
   return StyleSheet.create({
     container: {
       padding: 16,

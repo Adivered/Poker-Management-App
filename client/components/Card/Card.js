@@ -17,7 +17,6 @@ export function getCards() {
       shape: "diamond",
       scale: 25,
       fill: "#FF073A",
-      shadowColor: "#FF073A",
       backgroundColor: "#FFF",
       onPress: () => navigation.navigate("CreateMatch"),
     },
@@ -29,7 +28,6 @@ export function getCards() {
       shape: "heart",
       scale: 25,
       fill: "#FE019A",
-      shadowColor: "#FE019A",
       backgroundColor: "#FFF",
 
       onPress: () => navigation.navigate("MatchHistory"),
@@ -42,7 +40,6 @@ export function getCards() {
       shape: "club",
       scale: 25,
       fill: "#39FF14",
-      shadowColor: "#39FF14",
       backgroundColor: "#FFF",
       onPress: () => navigation.navigate("Leaderboard"),
     },
@@ -54,7 +51,6 @@ export function getCards() {
       shape: "spade",
       scale: 25,
       fill: "#CFFF04",
-      shadowColor: "#CFFF04",
       backgroundColor: "#FFF",
       onPress: () => navigation.navigate("Counter"),
     },
@@ -63,14 +59,12 @@ export function getCards() {
 
 const Card = ({ props }) => {
   const { windowWidth, windowHeight } = useContext(MyContext);
-  const { face, text, rank, scale, shape, fill, shadowColor, backgroundColor } =
-    props;
+  const { face, text, rank, scale, shape, fill, backgroundColor } = props;
   const theme = useTheme();
   const { colors, fonts } = theme;
   const styles = getStyles({
     windowWidth,
     windowHeight,
-    shadowColor,
     backgroundColor,
     fonts: fonts,
     colors: colors,
@@ -84,17 +78,12 @@ const Card = ({ props }) => {
       </View>
       <View style={styles.rightCorner}>
         <Text style={styles.rankText}>{rank}</Text>
-        <CardShapeView
-          shape={shape}
-          scale={scale}
-          fill={fill}
-          shadowColor={shadowColor}
-        />
+        <CardShapeView shape={shape} scale={scale} fill={fill} />
       </View>
     </View>
   );
 };
-const getStyles = ({ shadowColor, backgroundColor, fonts, colors }) =>
+const getStyles = ({ backgroundColor, fonts, colors }) =>
   StyleSheet.create({
     container: {
       alignSelf: "center",

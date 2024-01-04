@@ -22,7 +22,6 @@ export function AppNavigator() {
       <Stack.Screen
         name="Home"
         options={{
-          headerRight: (props) => <ActiveRoom {...props} />,
           headerLeft: (props) => <NavBarFrame {...props} />,
           headerLeftContainerStyle: {
             paddingLeft: 8,

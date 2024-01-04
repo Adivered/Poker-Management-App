@@ -80,7 +80,6 @@ const Slide2 = ({ styles }) => {
 const Slides = ({ item, props }) => {
   const styles = getStyles({
     colors: props.colors,
-    windowHeight: props.windowHeight,
     windowWidth: props.windowWidth,
     fonts: props.fonts,
   });
@@ -92,7 +91,7 @@ const Slides = ({ item, props }) => {
   }
 };
 
-const getStyles = ({ colors, windowWidth, windowHeight, fonts }) => {
+const getStyles = ({ colors, windowWidth, fonts }) => {
   return StyleSheet.create({
     container: {
       height: "80%",

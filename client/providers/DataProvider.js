@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext, useContext } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import { Dimensions } from "react-native";
 import io from "socket.io-client";
 import { REACT_APP_SERVER } from "@env";
@@ -42,8 +42,6 @@ export const DataProvider = ({ children }) => {
       initializeSocket();
     }
   }, [userInfo]);
-
-  //useEffect(() => {}, [socket]);
 
   const value = {
     userInfo,

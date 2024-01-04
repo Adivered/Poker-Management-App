@@ -14,20 +14,16 @@ const ActionCarousle = ({ props }) => {
   const scrollX = React.useRef(new Animated.Value(0)).current;
   const cards = getCards();
   const styles = getStyles({
-    colors: props.theme.colors,
     windowHeight: props.windowHeight,
     windowWidth: props.windowWidth,
-    fonts: props.theme.fonts,
   });
 
-  const renderItem = ({ item, index }) => {
+  const renderItem = ({ item }) => {
     return (
       <Animated.View
         style={{
           width: "100%",
           paddingHorizontal: 10,
-
-          //transform: [{ translateY }],
         }}
       >
         <Item style={styles.item} item={item} onPress={item.onPress} />
@@ -59,7 +55,7 @@ const ActionCarousle = ({ props }) => {
   );
 };
 
-const getStyles = ({ colors, windowWidth, windowHeight, fonts }) => {
+const getStyles = ({ windowWidth, windowHeight }) => {
   return StyleSheet.create({
     item: {
       width: windowWidth * 0.5,

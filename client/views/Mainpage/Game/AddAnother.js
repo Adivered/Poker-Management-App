@@ -4,7 +4,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import makeApiRequest from "../../../providers/ApiRequest";
 import AddPlayersModal from "./AddPlayersModal";
 import { GameContext } from "../../../providers/GameDataProvider";
-const AddAnother = () => {
+const AddAnother = ({ props }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const {
     gameID,
@@ -12,6 +12,11 @@ const AddAnother = () => {
     localPlayersSelected,
     setLocalPlayersSelected,
   } = useContext(GameContext);
+  const styles = getStyles({
+    colors: props.colors,
+    windowWidth: props.windowWidth,
+    fonts: props.fonts,
+  });
 
   async function handleResponse(data) {
     try {
@@ -55,79 +60,80 @@ const AddAnother = () => {
     </View>
   );
 };
-const styles = StyleSheet.create({
-  addIcon: {
-    fontSize: "100pt",
-    fontFamily: "Card-Characters",
-    textShadow: `rgba(188, 19, 254, 1) 0px 0px 5px`,
-  },
-  addText: {
-    fontSize: "12pt",
-    fontFamily: "Card-Characters",
-    color: "#fff",
-  },
-  addButton: {
-    height: 240,
-    width: 90,
-    marginTop: 48,
-    alignItems: "center",
-  },
-  modalContainer: {
-    height: "40%",
-    width: "90%",
-    bottom: 0,
-    margin: 24,
-    alignItems: "center",
-    borderRadius: 20,
-    position: "absolute",
-    backgroundColor: "hsla(272, 100%, 5%, 1)",
-  },
-  scrollViewContainer: {
-    height: "100%",
-    width: "95%",
-    marginHorizontal: 48,
-    marginVertical: 24,
-    borderRadius: 20,
-    backgroundColor: "hsla(272, 100%, 5%, 1)",
-  },
-  modalItem: {
-    height: 120,
-    width: 120,
-    borderRadius: 24,
-    flexDirection: "column",
-    backgroundColor: "hsla(272, 100%, 10%, 1)",
-    alignItems: "center",
-    justifyContent: "center",
-    margin: 16,
-  },
-  modalItemText: {
-    color: "#fff",
-    fontFamily: "Card-Characters",
-    fontWeight: "bold",
-    fontSize: "16pt",
-  },
-  selectedAddPlayerButtonContainer: {
-    height: "20%",
-    width: "90%",
-    position: "absolute",
-    bottom: 40,
-    borderRadius: 32,
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "row",
-  },
-  modalButton: {
-    flex: 1,
-    height: 50,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  modalButtonText: {
-    fontFamily: "Card-Characters",
-    fontSize: "14pt",
-    fontWeight: "bold",
-    color: "#fff",
-  },
-});
+const getStyles = ({ colors, windowWidth, fonts }) => {
+  return StyleSheet.create({
+    addIcon: {
+      fontSize: "100pt",
+      fontFamily: fonts.regular.fontFamily,
+    },
+    addText: {
+      fontSize: 20,
+      fontFamily: fonts.regular.fontFamily,
+      color: colors.onPrimary,
+    },
+    addButton: {
+      height: 240,
+      width: 90,
+      marginTop: 48,
+      alignItems: "center",
+    },
+    modalContainer: {
+      height: "40%",
+      width: "90%",
+      bottom: 0,
+      margin: 24,
+      alignItems: "center",
+      borderRadius: 20,
+      position: "absolute",
+      backgroundColor: "hsla(272, 100%, 5%, 1)",
+    },
+    scrollViewContainer: {
+      height: "100%",
+      width: "95%",
+      marginHorizontal: 48,
+      marginVertical: 24,
+      borderRadius: 20,
+      backgroundColor: "hsla(272, 100%, 5%, 1)",
+    },
+    modalItem: {
+      height: 120,
+      width: 120,
+      borderRadius: 24,
+      flexDirection: "column",
+      backgroundColor: "hsla(272, 100%, 10%, 1)",
+      alignItems: "center",
+      justifyContent: "center",
+      margin: 16,
+    },
+    modalItemText: {
+      color: colors.onPrimary,
+      fontFamily: fonts.regular.fontFamily,
+      fontWeight: "bold",
+      fontSize: "16pt",
+    },
+    selectedAddPlayerButtonContainer: {
+      height: "20%",
+      width: "90%",
+      position: "absolute",
+      bottom: 40,
+      borderRadius: 32,
+      alignItems: "center",
+      justifyContent: "center",
+      flexDirection: "row",
+    },
+    modalButton: {
+      flex: 1,
+      height: 50,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    modalButtonText: {
+      fontFamily: fonts.regular.fontFamily,
+      fontSize: 20,
+      fontWeight: "bold",
+      color: colors.onPrimary,
+    },
+  });
+};
 
 export default AddAnother;

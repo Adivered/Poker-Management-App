@@ -30,8 +30,6 @@ const Homepage = ({ navigation }) => {
   const { colors, fonts } = theme;
   const styles = getStyles({
     colors: colors,
-    windowHeight,
-    windowWidth,
     fonts: fonts,
   });
 
@@ -49,9 +47,6 @@ const Homepage = ({ navigation }) => {
   };
   useEffect(() => {
     const fetchData = async () => {
-      // Fetch user information here
-      // ...
-
       // Simulate loading delay
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setLoading(false);
@@ -114,7 +109,6 @@ const Homepage = ({ navigation }) => {
     >
       {loading ? (
         <View style={styles.loadingContainer}>
-          {/* Add a loading indicator or message if needed */}
           <Text style={styles.textWrapper}>Loading...</Text>
         </View>
       ) : !userInfo ? (
@@ -137,7 +131,7 @@ const Homepage = ({ navigation }) => {
   );
 };
 
-const getStyles = ({ colors, windowWidth, windowHeight, fonts }) => {
+const getStyles = ({ colors, fonts }) => {
   return StyleSheet.create({
     div2: {
       backgroundColor: colors.background,

@@ -6,8 +6,6 @@ class Config(object):
     SECRET_KEY = environ.get("SECRET_KEY")
     JWT_SECRET_KEY = environ.get("SECRET_KEY")
     SQLALCHEMY_DATABASE_URI = environ.get("SQLALCHEMY_DATABASE_URI")
-    RECAPTCHA_PUBLIC_KEY = environ.get("RECAPTCHA_PUBLIC_KEY")
-    RECAPTCHA_PRIVATE_KEY = environ.get("RECAPTCHA_PRIVATE_KEY")
     JWT_ACCESS_TOKEN_EXPIRES = datetime.timedelta(minutes=15)
     JWT_COOKIE_CSRF_PROTECT = True
 

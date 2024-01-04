@@ -4,7 +4,6 @@ import CreateMatch from "../views/Mainpage/CreateMatch";
 import GameLobby from "../views/Mainpage/GameLobby";
 import Homepage from "../views/Mainpage/Homepage/Homepage";
 import NavBarFrame from "../components/NavBarFrame";
-import ActiveRoom from "../components/ActiveRoom";
 import LoginScreen from "../views/Auth/LoginScreen";
 import RegistrationScreen from "../views/Auth/Registration";
 const Stack = createStackNavigator();

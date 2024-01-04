@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native-chart-kit/dist/BarChart.js b/node_modules/react-native-chart-kit/dist/BarChart.js
+index dabc147..4ce1f84 100644
+--- a/node_modules/react-native-chart-kit/dist/BarChart.js
++++ b/node_modules/react-native-chart-kit/dist/BarChart.js
+@@ -92,7 +92,7 @@ var BarChart = /** @class */ (function (_super) {
+                 var barWidth = 32 * _this.getBarPercentage();
+                 return (<Text key={Math.random()} x={paddingRight +
+                     (i * (width - paddingRight)) / data.length +
+-                    barWidth / 1} y={((baseHeight - barHeight) / 4) * 3 + paddingTop - 1} fill={_this.props.chartConfig.color(0.6)} fontSize="12" textAnchor="middle">
++                    barWidth / 1} y={((baseHeight - barHeight) / 4) * 3 + paddingTop - 24} fill={_this.props.chartConfig.color(0.6)} fontSize="12pt" fontWeight="bold" textAnchor="middle">
+           {renderLabel(data[i])}
+         </Text>);
+             });

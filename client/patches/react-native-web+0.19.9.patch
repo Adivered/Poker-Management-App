@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native-web/dist/index.js b/node_modules/react-native-web/dist/index.js
+index 4f69987..4f84eea 100644
+--- a/node_modules/react-native-web/dist/index.js
++++ b/node_modules/react-native-web/dist/index.js
+@@ -4,7 +4,7 @@ export { default as processColor } from './exports/processColor';
+ export { default as render } from './exports/render';
+ export { default as unmountComponentAtNode } from './exports/unmountComponentAtNode';
+ export { default as NativeModules } from './exports/NativeModules';
+-
++export const ViewPropTypes = { style: null };
+ // APIs
+ export { default as AccessibilityInfo } from './exports/AccessibilityInfo';
+ export { default as Alert } from './exports/Alert';
